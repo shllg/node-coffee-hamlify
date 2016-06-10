@@ -1,20 +1,12 @@
-
-var Handlebars = require("handlebars-runtime");
-var template = require("./template.hbs");
-
-Handlebars.registerPartial('link', require("./partial.hbs"));
-
-Handlebars.registerHelper("capitalize", function(name) {
-  return name[0].toUpperCase() + name.slice(1);
-});
-
+var partial = require("./partial.haml");
+var template = require("./template.haml");
 
 var data = {
-  name: "esa",
+  name: "paul",
   links: [
-    { name: "Blog", url: "http://esa-matti.suuronen.org/" },
-    { name: "Twitter", url: "https://twitter.com/esamatti" },
-    { name: "Github", url: "https://github.com/epeli" }
+    { name: "Blog", url: "http://trxcllnt.com/" },
+    { name: "Twitter", url: "https://twitter.com/trxcllnt" },
+    { name: "Github", url: "https://github.com/trxcllnt" }
   ]
 };
 

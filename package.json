@@ -1,34 +1,40 @@
 {
-  "name": "hbsfy",
-  "version": "0.1.5",
-  "description": "Handlebars precompiler plugin for Browserify v2",
+  "name": "hamlify",
+  "version": "0.0.4",
+  "description": "Haml-coffee precompiler plugin for Browserify v2",
   "main": "index.js",
   "scripts": {
     "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/epeli/node-hbsfy"
+    "url": "git+https://github.com/wonderweblabs/node-hamlify.git"
   },
   "keywords": [
-    "handlebars",
+    "haml",
+    "haml-coffee",
     "browserify",
     "v2",
     "js",
     "plugin",
     "transform"
   ],
-  "author": "Esa-Matti Suuronen",
+  "author": {
+    "name": "wwl"
+  },
   "license": "MIT",
   "dependencies": {
-    "through": "~2.2.7",
-    "handlebars": "~1.0.12"
-  },
-  "peerDependencies": {
-    "handlebars-runtime": "~1.0.12"
+    "through": "~2.3.8",
+    "coffee-script": "~1.10.0",
+    "haml-coffee": "~1.14.1"
   },
   "devDependencies": {
-    "browserify": "~2.4.0",
-    "handlebars-runtime": "~1.0.12"
-  }
+    "browserify": "~13.0.1"
+  },
+  "readme": "[![Build Status](https://travis-ci.org/trxcllnt/node-hamlify.png?branch=master)](https://travis-ci.org/trxcllnt/node-hamlify)\n\n# hamlify\n\n[Haml-coffee][] precompiler plugin for [Browserify v2][] without magic.\n\nCompiles Haml templates to plain Javascript.\n\n## Usage\n\nInstall hamlify locally to your project:\n\n    npm install hamlify\n\nThen use it as Browserify transform module with `-t`:\n\n    browserify -t hamlify main.js > bundle.js\n\nwhere main.js can be like:\n\n```javascript\nvar template = require(\"./template.haml\");\ndocument.body.innerHTML = template({ name: \"Epeli\" });\n```\n\nand template.haml:\n\n```html\n%h1= @name!\n```\n\nCheckout the example folder for details.\n\n## Browserify?\n\n<https://github.com/substack/node-browserify>\n\nFurther reading: <http://esa-matti.suuronen.org/blog/2013/03/22/journey-from-requirejs-to-browserify/>\n\n[Haml-coffee]: https://github.com/netzpirat/haml-coffee\n[Browserify v2]: https://github.com/substack/node-browserify\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/wonderweblabs/node-hamlify/issues"
+  },
+  "homepage": "https://github.com/wonderweblabs/node-hamlify#readme"
 }

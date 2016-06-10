@@ -8,7 +8,7 @@ Compiles Haml templates to plain Javascript.
 
 ## Usage
 
-Install hbsfy locally to your project:
+Install hamlify locally to your project:
 
     npm install hamlify
 

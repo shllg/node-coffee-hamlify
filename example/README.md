@@ -1,5 +1,5 @@
 
-# hbsfy example with helpers
+# hamlify example with helpers
 
 Install deps
 

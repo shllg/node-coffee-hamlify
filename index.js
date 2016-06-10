@@ -1,24 +1,27 @@
 /*jshint node: true*/
 
 var through = require('through');
-var Handlebars = require("handlebars");
+var CoffeeScript = require('coffee-script');
+var Compiler = require('./node_modules/haml-coffee/src/haml-coffee')
 
 module.exports = function(file) {
-  if (!/\.hbs|\.handlebars/.test(file)) return through();
+  if (!/\.haml|\.hamlc/.test(file)) return through();
 
-  var buffer = "";
+  var source = "";
 
   return through(function(chunk) {
-    buffer += chunk.toString();
+    source += chunk.toString();
   },
   function() {
-    var js = Handlebars.precompile(buffer);
-    // Compile only with the runtime dependency.
-    var compiled = "var Handlebars = require('handlebars-runtime');\n";
-    compiled += "module.exports = Handlebars.template(" + js.toString() + ");\n";
+    
+    var compiler = new Compiler({});
+    compiler.parse(source);
+    var template = CoffeeScript.compile(compiler.precompile(), {bare: true});
+    var compiled = "module.exports = function(options) {\nreturn (function() {\n" +
+      template +
+      "\n}).call(options)\n};";
+    
     this.queue(compiled);
     this.queue(null);
   });
-
 };
-

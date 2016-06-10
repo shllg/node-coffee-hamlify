@@ -2,15 +2,9 @@
 
 var fs = require("fs");
 var assert = require("assert");
+var hamlify = require("../index");
 
-var hbsfy = require("../index");
-var Handlebars = require("handlebars-runtime");
-
-Handlebars.registerHelper("upcase", function(s) {
-  return s.toUpperCase();
-});
-
-var templatePath = __dirname + "/hello.hbs";
+var templatePath = __dirname + "/hello.haml";
 var exported = __dirname + "/compiled.js";
 
 try {
@@ -18,12 +12,12 @@ try {
 } catch (err) { }
 
 fs.createReadStream(templatePath)
-.pipe(hbsfy(templatePath))
+.pipe(hamlify(templatePath))
 .pipe(fs.createWriteStream(exported))
 .on("close", function() {
   var template = require(exported);
   var res = template({ msg: "hi!" });
-  assert.equal(res, "<h1>HI!</h1>\n");
+  assert.equal(res, "<h1>hi!</h1>");
   console.log("ok");
 });
 

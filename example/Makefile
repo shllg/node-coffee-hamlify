@@ -3,4 +3,4 @@
 export PATH := node_modules/.bin:$(PATH)
 
 all:
-	browserify -t hbsfy index.js > index-bundle.js
+	browserify -t hamlify index.js > index-bundle.js
