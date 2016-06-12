@@ -1,6 +1,6 @@
 {
   "name": "hamlify",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Haml-coffee precompiler plugin for Browserify v2",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,7 @@
   "license": "MIT",
   "dependencies": {
     "through": "~2.3.8",
-    "coffee-script": "~1.10.0",
+    "coffee-script": "wonderweblabs/haml-coffee#master",
     "haml-coffee": "~1.14.1"
   },
   "devDependencies": {
