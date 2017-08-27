@@ -1,6 +1,6 @@
 {
-  "name": "hamlify",
-  "version": "0.0.7",
+  "name": "coffee-hamlify",
+  "version": "0.1.0",
   "description": "Haml-coffee precompiler plugin for Browserify v2",
   "main": "index.js",
   "scripts": {
