@@ -2,7 +2,7 @@
 
 var through = require('through');
 var CoffeeScript = require('coffee-script');
-var Compiler = require('haml-coffee')
+var Compiler = require('haml-coffee/src/haml-coffee')
 
 module.exports = function(file) {
   if (!/\.haml|\.hamlc/.test(file)) return through();
